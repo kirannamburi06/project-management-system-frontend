@@ -33,8 +33,11 @@
   background-color: #e2e8f0;
 }
 
-.projectsGrid{
+.content{
   flex: 1;
+}
+
+.projectsGrid{
   display: grid;
   grid-template-columns: repeat(
     auto-fill,

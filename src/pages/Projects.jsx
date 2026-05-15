@@ -49,14 +49,16 @@ function Projects() {
         <h1>Projects</h1>
         <button>+ Create Project</button>
       </div>
-      <div className={styles.projectsGrid}>
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            onClick={() => navigate(`/projects/${project.id}`)}
-          />
-        ))}
+      <div className={styles.content}>
+        <div className={styles.projectsGrid}>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={() => navigate(`/projects/${project.id}`)}
+            />
+          ))}
+        </div>
       </div>
 
       <div className={styles.pagination}>

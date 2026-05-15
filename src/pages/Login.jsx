@@ -30,7 +30,6 @@ function Login() {
       const response = await api.post("/auth/login", form);
 
       localStorage.setItem("token", response.data.data);
-      console.log(response);
       navigate("/projects");
     } catch (error) {
       setError(error.response?.data?.message || "Login failed");
