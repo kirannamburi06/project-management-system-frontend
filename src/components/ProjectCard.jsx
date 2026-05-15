@@ -1,9 +1,11 @@
+import styles from "./ProjectCard.module.css";
+
 function ProjectCard({ project, onClick }) {
   return (
-    <div className="project-card" onClick={onClick}>
+    <div className={styles.projectCard} onClick={onClick}>
       <h3>{project.name}</h3>
-      <p>{project.description}</p>
-      <span>Members: {project.members}</span>
+      <p>{project.Description}</p>
+      <span>Members: {project.members.join(", ")}</span>
     </div>
   );
 }

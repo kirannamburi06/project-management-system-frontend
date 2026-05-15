@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import ProjectCard from "../components/ProjectCard";
+import styles from "./Projects.module.css";
 
 function Projects() {
   const navigate = useNavigate();
@@ -43,12 +44,12 @@ function Projects() {
   }
 
   return (
-    <div>
-      <div>
+    <div className={styles.projectsPage}>
+      <div className={styles.projectsHeader}>
         <h1>Projects</h1>
-        <button>+ Add Project</button>
+        <button>+ Create Project</button>
       </div>
-      <div>
+      <div className={styles.projectsGrid}>
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
@@ -58,7 +59,7 @@ function Projects() {
         ))}
       </div>
 
-      <div>
+      <div className={styles.pagination}>
         <button disabled={page == 0} onClick={() => setPage(page - 1)}>
           Previous
         </button>

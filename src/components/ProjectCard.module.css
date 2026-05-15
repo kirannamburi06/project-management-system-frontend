@@ -1,0 +1,32 @@
+.projectCard{
+  background-color: white;
+  border-radius: 14px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.projectCard:hover{
+  transform: translateY(-3px);
+}
+
+.projectCard h3{
+  margin: 0;
+  color: #1e293b;
+}
+
+.projectCard p{
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.projectCard span {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #1b3e6f;
+}

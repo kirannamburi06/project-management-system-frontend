@@ -1,0 +1,72 @@
+.projectsPage{
+  min-height: 100vh;
+  background-color: #0f172a;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectsHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.projectsHeader h1{
+  margin: 0;
+  color: white;
+}
+
+.projectsHeader button{
+  background-color: white;
+  border: none;
+  color: #0f172a;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.8rem 0.8rem;
+  transition: background-color 0.2s ease;
+}
+
+.projectsHeader button:hover{
+  background-color: #e2e8f0;
+}
+
+.projectsGrid{
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(260px, 1fr)
+  );
+  gap: 1.5rem;
+}
+
+.pagination{
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.pagination button{
+  background-color: white;
+  border: none;
+  color: #0f172a;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span{
+  color: white;
+}
