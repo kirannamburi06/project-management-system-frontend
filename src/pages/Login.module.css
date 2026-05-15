@@ -69,7 +69,7 @@ body{
   background-color: #1e293b;
 }
 
-.error {
+.card .error {
   color: #dc2626;
   text-align: center;
   font-size: 0.95rem;

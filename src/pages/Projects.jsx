@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import ProjectCard from "../components/ProjectCard";
 import styles from "./Projects.module.css";
+import CreateProjectModal from "../components/CreateProjectModal";
 
 function Projects() {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ function Projects() {
   const [error, setError] = useState("");
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   const fetchProjects = async (currentPage = 0) => {
     try {
@@ -22,7 +24,7 @@ function Projects() {
       setPage(response.data.data.currentPage);
       setTotalPages(response.data.data.totalPages);
     } catch (error) {
-      if (error.response.status == 403) {
+      if (error?.response?.status == 403) {
         setError("You have no privileges to access this url. Login first");
       } else {
         setError("Failed to load projects");
@@ -40,14 +42,18 @@ function Projects() {
     return <h2>Loading Projects...</h2>;
   }
   if (error) {
-    return <h2>{error}</h2>;
+    return (
+      <div className={styles.errorContainer}>
+        <h2 className={styles.errorMessage}>{error}</h2>;
+      </div>
+    );
   }
 
   return (
     <div className={styles.projectsPage}>
       <div className={styles.projectsHeader}>
         <h1>Projects</h1>
-        <button>+ Create Project</button>
+        <button onClick={() => setShowModal(true)}>+ Create Project</button>
       </div>
       <div className={styles.content}>
         <div className={styles.projectsGrid}>
@@ -77,6 +83,13 @@ function Projects() {
           Next
         </button>
       </div>
+
+      {showModal && (
+        <CreateProjectModal
+          onClose={() => setShowModal(false)}
+          onProjectCreated={() => fetchProjects(page)}
+        />
+      )}
     </div>
   );
 }
