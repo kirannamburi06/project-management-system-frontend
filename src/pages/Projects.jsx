@@ -18,7 +18,7 @@ function Projects() {
     try {
       setLoading(true);
 
-      const response = await api.get(`/projects?page=${currentPage}&size=${6}`);
+      const response = await api.get(`/projects?page=${currentPage}&size=${8}`);
 
       setProjects(response.data.data.content);
       setPage(response.data.data.currentPage);
@@ -31,6 +31,23 @@ function Projects() {
       }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const deleteProject = async (projectId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this project? Deleting will completely remove related data from our data bases",
+    );
+
+    if (!confirmDelete) {
+      return;
+    }
+
+    try {
+      await api.delete(`/projects/${projectId}`);
+      fetchProjects(page);
+    } catch (error) {
+      alert(error?.response?.data?.message || "Failed to delete project");
     }
   };
 
@@ -62,6 +79,7 @@ function Projects() {
               key={project.id}
               project={project}
               onClick={() => navigate(`/projects/${project.id}`)}
+              onDelete={() => deleteProject(project.id)}
             />
           ))}
         </div>
