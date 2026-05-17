@@ -6,7 +6,7 @@ import styles from "./Projects.module.css";
 import CreateProjectModal from "../components/CreateProjectModal";
 import DashboardLayout from "../layouts/DashboardLayout";
 
-function Projects() {
+function Projects({ refreshProjects }) {
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -57,7 +57,7 @@ function Projects() {
 
   useEffect(() => {
     fetchProjects(page);
-  }, [page]);
+  }, [page, refreshProjects]);
 
   if (loading) {
     return <h2>Loading Projects...</h2>;

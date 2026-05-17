@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import MailboxModal from "./MailboxModal";
 
-const Header = ({ sidebarOpen, setSidebarOpen }) => {
+const Header = ({ sidebarOpen, setSidebarOpen, setRefreshProjects }) => {
   const navigate = useNavigate();
 
   const [showMailbox, setShowMailbox] = useState(false);
@@ -38,7 +38,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
         <MailboxModal
           onClose={() => {
             setShowMailbox(false);
-            window.location.reload();
+            setRefreshProjects((prev) => !prev);
           }}
         />
       )}
