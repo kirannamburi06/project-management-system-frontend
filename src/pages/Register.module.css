@@ -1,88 +1,139 @@
-body{
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #0f172a;
-}
+.registerContainer {
 
-.container{
-  height: 100vh;
+  min-height: 100vh;
+
+  background-color: #0f172a;
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   padding: 1rem;
 }
 
-.card{
+.registerCard {
+
   width: 100%;
-  max-width: 360px;
+
+  max-width: 380px;
+
   background-color: white;
+
   border-radius: 16px;
+
   padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
   display: flex;
+
   flex-direction: column;
+
   gap: 1rem;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.2);
 }
 
-.card h1{
-  margin: 0;
+.header {
+
   text-align: center;
+}
+
+.header h1 {
+
+  margin: 0;
+
   color: #1e293b;
 }
 
-.card p{
-  text-align: left;
-  margin: -0.5rem;
+.header p {
+
   color: #64748b;
+
+  margin-top: 0.5rem;
 }
 
-.card input{
+.registerCard input {
+
   padding: 0.9rem;
+
   border: 1px solid #cbd5e1;
+
   border-radius: 8px;
+
   font-size: 1rem;
+
   outline: none;
+
   transition: border-color 0.2s ease;
 }
 
-.card input:focus{
+.registerCard input:focus {
+
   border-color: #0f172a;
 }
 
-.card button{
+.registerCard button {
+
   padding: 0.9rem;
-  background-color: #0f172a;
-  color: white;
+
   border: none;
+
   border-radius: 8px;
-  cursor: pointer;
+
+  background-color: #0f172a;
+
+  color: white;
+
   font-size: 1rem;
+
+  cursor: pointer;
+
   transition: background-color 0.2s ease;
 }
 
-.card button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
+.registerCard button:hover {
 
-.card button:hover {
   background-color: #1e293b;
 }
 
-.card .error {
+.registerCard button:disabled {
+
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+.error {
+
   color: #dc2626;
+
   text-align: center;
+
   font-size: 0.95rem;
 }
 
-.registerPage{
-  display: flex;
-  align-items: center;
-  gap:1rem;
-  justify-content: center;
+.success {
+
+  color: #16a34a;
+
+  text-align: center;
+
+  font-size: 0.95rem;
 }
 
-.registerPage a{
+.footerText {
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 0.95rem;
+}
+
+.footerText a {
+
   color: #0f172a;
 
   text-decoration: none;

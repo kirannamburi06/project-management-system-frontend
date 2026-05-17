@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import styles from "./Login.module.css";
 
@@ -63,6 +63,9 @@ function Login() {
         <button type="submit" disabled={loading}>
           {loading ? "Loading..." : "Login"}
         </button>
+        <div className={styles.registerPage}>
+          New user? <Link to="/register"> Create Account </Link>
+        </div>
       </form>
     </div>
   );

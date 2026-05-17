@@ -1,0 +1,107 @@
+.projectDetailsPage {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+.projectHeader {
+
+  background-color: white;
+
+  padding: 2rem;
+
+  border-radius: 16px;
+}
+
+.projectHeader h1 {
+
+  margin: 0;
+
+  color: #1e293b;
+}
+
+.projectHeader p {
+
+  color: #64748b;
+}
+
+.section {
+
+  background-color: white;
+
+  border-radius: 16px;
+
+  padding: 1.5rem;
+}
+
+.sectionHeader {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader button {
+
+  background-color: #0f172a;
+
+  color: white;
+
+  border: none;
+
+  padding: 0.7rem 1rem;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.membersGrid,
+.tasksGrid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(250px, 1fr));
+
+  gap: 1rem;
+}
+
+.memberCard,
+.taskCard {
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 12px;
+
+  padding: 1rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.memberCard h4,
+.taskCard h3 {
+
+  margin: 0;
+
+  color: #1e293b;
+}
+
+.memberCard span,
+.taskCard span {
+
+  color: #64748b;
+
+  font-size: 0.95rem;
+}

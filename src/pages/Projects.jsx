@@ -27,6 +27,9 @@ function Projects() {
     } catch (error) {
       if (error?.response?.status == 403) {
         setError("You have no privileges to access this url. Login first");
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
       } else {
         setError("Failed to load projects");
       }
