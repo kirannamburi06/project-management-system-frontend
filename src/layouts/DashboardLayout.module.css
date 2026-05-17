@@ -1,0 +1,20 @@
+.dashboardLayout {
+
+  min-height: 100vh;
+
+  background-color: #0f172a;
+}
+
+.dashboardBody {
+
+  display: flex;
+}
+
+.dashboardContent {
+
+  flex: 1;
+
+  padding: 2rem;
+
+  transition: all 0.3s ease;
+}
