@@ -30,7 +30,6 @@ const Header = ({ sidebarOpen, setSidebarOpen, setRefreshProjects }) => {
       </div>
 
       <nav className={styles.headerNav}>
-        <button onClick={() => navigate("/projects")}>Projects</button>
         <button onClick={() => setShowMailbox(true)}>📩</button>
         <button onClick={handleLogout}>Logout</button>
       </nav>

@@ -43,7 +43,7 @@
   border: 1px solid #cbd5e1;
 }
 
-button{
+.actions button{
   background-color: #dc2626;
 
   color: white;
@@ -61,6 +61,6 @@ button{
   transition: background-color 0.2s ease;
 }
 
-button:hover{
+.actions button:hover{
   background-color: #dc2626dc;
 }

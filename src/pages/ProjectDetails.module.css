@@ -7,13 +7,37 @@
   gap: 2rem;
 }
 
-.projectHeader {
+.projectContainer{
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 1rem;
 
   background-color: white;
 
   padding: 2rem;
 
   border-radius: 16px;
+}
+
+.activityBtn {
+
+  background-color: #0f172a;
+
+  color: white;
+
+  border: none;
+
+  padding: 0.8rem 1.2rem;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
 }
 
 .projectHeader h1 {

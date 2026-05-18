@@ -6,6 +6,7 @@ import api from "../api/axios";
 import InviteUserModal from "../components/InviteUserModal";
 import CreateTaskModal from "../components/CreateTaskModal";
 import TaskCard from "../components/TaskCard";
+import ActivityLogModal from "../components/ActivityLogModal";
 
 import styles from "./ProjectDetails.module.css";
 
@@ -29,6 +30,8 @@ const ProjectDetails = () => {
   const [page, setPage] = useState(0);
 
   const [totalPages, setTotalPages] = useState(0);
+
+  const [showActivityLogModal, setShowActivityLogModal] = useState(false);
 
   const fetchProjectDetails = async (currentPage = 0) => {
     try {
@@ -145,10 +148,21 @@ const ProjectDetails = () => {
 
   return (
     <div className={styles.projectDetailsPage}>
-      <div className={styles.projectHeader}>
-        <h1>{project?.name}</h1>
+      <div className={styles.projectContainer}>
+        <div className={styles.projectHeader}>
+          <h1>{project?.name}</h1>
 
-        <p>{project?.Description}</p>
+          <p>{project?.Description}</p>
+        </div>
+
+        <button
+          className={styles.activityBtn}
+          onClick={() => {
+            setShowActivityLogModal(true);
+          }}
+        >
+          View Activity
+        </button>
       </div>
 
       <section className={styles.section}>
@@ -220,6 +234,15 @@ const ProjectDetails = () => {
           members={members}
           onClose={() => setShowTaskModal(false)}
           onTaskCreated={fetchProjectDetails}
+        />
+      )}
+
+      {showActivityLogModal && (
+        <ActivityLogModal
+          projectId={project?.id}
+          onClose={() => {
+            setShowActivityLogModal(false);
+          }}
         />
       )}
     </div>
