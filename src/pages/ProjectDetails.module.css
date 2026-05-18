@@ -105,3 +105,31 @@
 
   font-size: 0.95rem;
 }
+
+.pagination{
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.pagination button{
+  background-color: #0f172a;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span{
+  color: #0f172a;
+}

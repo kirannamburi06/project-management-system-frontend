@@ -86,8 +86,8 @@ function CreateTaskModal({ projectId, members, onClose, onTaskCreated }) {
             <option value="">Assign Member</option>
 
             {members.map((member) => (
-              <option key={member} value={member}>
-                {member}
+              <option key={member.userId} value={member.userId}>
+                {member.name}
               </option>
             ))}
           </select>

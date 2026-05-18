@@ -26,14 +26,18 @@ const ProjectDetails = () => {
 
   const [showTaskModal, setShowTaskModal] = useState(false);
 
-  const fetchProjectDetails = async () => {
+  const [page, setPage] = useState(0);
+
+  const [totalPages, setTotalPages] = useState(0);
+
+  const fetchProjectDetails = async (currentPage = 0) => {
     try {
       setLoading(true);
 
       const [projectRes, tasksRes] = await Promise.all([
         api.get(`/projects/${projectId}`),
 
-        api.get(`/projects/${projectId}/tasks`),
+        api.get(`/projects/${projectId}/tasks?page=${currentPage}&size=${8}`),
       ]);
 
       const projectData = projectRes.data.data;
@@ -43,6 +47,10 @@ const ProjectDetails = () => {
       setTasks(tasksRes.data.data.content);
 
       createMemberList(projectData.members);
+
+      setPage(tasksRes.data.data.currentPage);
+
+      setTotalPages(tasksRes.data.data.totalPages);
     } catch (err) {
       setError(
         err?.response?.data?.message || "Failed to load project details",
@@ -106,8 +114,8 @@ const ProjectDetails = () => {
   };
 
   useEffect(() => {
-    fetchProjectDetails();
-  }, []);
+    fetchProjectDetails(page);
+  }, [page]);
 
   if (loading) {
     return <h2>Loading...</h2>;
@@ -160,6 +168,22 @@ const ProjectDetails = () => {
               onAssign={assignTask}
             />
           ))}
+        </div>
+        <div className={styles.pagination}>
+          <button disabled={page == 0} onClick={() => setPage(page - 1)}>
+            Previous
+          </button>
+
+          <span>
+            Page {page + 1} of {totalPages}
+          </span>
+
+          <button
+            disabled={page + 1 >= totalPages}
+            onClick={() => setPage(page + 1)}
+          >
+            Next
+          </button>
         </div>
       </section>
 
