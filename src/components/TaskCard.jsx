@@ -1,9 +1,9 @@
 import styles from "./TaskCard.module.css";
 
-function TaskCard({ task, members, onStatusChange, onAssign }) {
+function TaskCard({ task, members, onStatusChange, onAssign, onDelete }) {
   return (
     <div className={styles.taskCard}>
-      <h3>{task.title}</h3>
+      <h3>{task.name}</h3>
 
       <p>{task.description}</p>
 
@@ -35,6 +35,14 @@ function TaskCard({ task, members, onStatusChange, onAssign }) {
             </option>
           ))}
         </select>
+
+        <button
+          onClick={() => {
+            onDelete(task.id);
+          }}
+        >
+          Delete task
+        </button>
       </div>
     </div>
   );

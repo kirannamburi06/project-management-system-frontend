@@ -74,6 +74,10 @@
   gap: 1rem;
 }
 
+.tasksGrid h3{
+  color: #0f172a;
+}
+
 .memberCard,
 .taskCard {
 

@@ -113,6 +113,24 @@ const ProjectDetails = () => {
     }
   };
 
+  const deleteTask = async (taskId) => {
+    try {
+      const confirmDelete = window.confirm(
+        "Are you sure you want to delete this task?",
+      );
+
+      if (!confirmDelete) {
+        return;
+      }
+
+      await api.delete(`/projects/${projectId}/tasks/${taskId}`);
+
+      fetchProjectDetails(page);
+    } catch (error) {
+      alert("Failed to delete the task");
+    }
+  };
+
   useEffect(() => {
     fetchProjectDetails(page);
   }, [page]);
@@ -159,6 +177,7 @@ const ProjectDetails = () => {
         </div>
 
         <div className={styles.tasksGrid}>
+          {tasks.length == 0 && <h3>No tasks! Create one.</h3>}
           {tasks.map((task) => (
             <TaskCard
               key={task.id}
@@ -166,6 +185,7 @@ const ProjectDetails = () => {
               members={members}
               onStatusChange={updateTaskStatus}
               onAssign={assignTask}
+              onDelete={deleteTask}
             />
           ))}
         </div>
