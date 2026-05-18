@@ -71,50 +71,48 @@ function Projects({ refreshProjects }) {
   }
 
   return (
-    <DashboardLayout>
-      <div className={styles.projectsPage}>
-        <div className={styles.projectsHeader}>
-          <h1>Projects</h1>
-          <button onClick={() => setShowModal(true)}>+ Create Project</button>
-        </div>
-        <div className={styles.content}>
-          <div className={styles.projectsGrid}>
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onClick={() => navigate(`/projects/${project.id}`)}
-                onDelete={() => deleteProject(project.id)}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.pagination}>
-          <button disabled={page == 0} onClick={() => setPage(page - 1)}>
-            Previous
-          </button>
-
-          <span>
-            Page {page + 1} of {totalPages}
-          </span>
-
-          <button
-            disabled={page + 1 >= totalPages}
-            onClick={() => setPage(page + 1)}
-          >
-            Next
-          </button>
-        </div>
-
-        {showModal && (
-          <CreateProjectModal
-            onClose={() => setShowModal(false)}
-            onProjectCreated={() => fetchProjects(page)}
-          />
-        )}
+    <div className={styles.projectsPage}>
+      <div className={styles.projectsHeader}>
+        <h1>Projects</h1>
+        <button onClick={() => setShowModal(true)}>+ Create Project</button>
       </div>
-    </DashboardLayout>
+      <div className={styles.content}>
+        <div className={styles.projectsGrid}>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={() => navigate(`/projects/${project.id}`)}
+              onDelete={() => deleteProject(project.id)}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.pagination}>
+        <button disabled={page == 0} onClick={() => setPage(page - 1)}>
+          Previous
+        </button>
+
+        <span>
+          Page {page + 1} of {totalPages}
+        </span>
+
+        <button
+          disabled={page + 1 >= totalPages}
+          onClick={() => setPage(page + 1)}
+        >
+          Next
+        </button>
+      </div>
+
+      {showModal && (
+        <CreateProjectModal
+          onClose={() => setShowModal(false)}
+          onProjectCreated={() => fetchProjects(page)}
+        />
+      )}
+    </div>
   );
 }
 
